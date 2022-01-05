@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:outlay/screens/home/home.dart';
+
+import 'package:outlay/screens/splash/splash.dart';
 
 void main(List<String> args) {
   runApp(const Outlay());
@@ -11,8 +12,8 @@ class Outlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.deepPurple),
-      home: const Home(),
+      theme: ThemeData(primaryColor: Colors.white),
+      home: const Splash(),
     );
   }
 }
