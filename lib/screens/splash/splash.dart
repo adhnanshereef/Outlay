@@ -36,24 +36,30 @@ class _SplashState extends State<Splash> {
         backgroundColor: Colors.transparent,
         body: SafeArea(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              // Image.asset('assets/logo.svg'),
-              ImageIcon(AssetImage('assets/logo.svg')
-                  // color: Colors.white,
-                  ),
-              Center(
-                child: Text(
-                  'Outlay',
-                  style: TextStyle(
+            children: [
+              const SizedBox(),
+              Column(
+                children: const [
+                  ImageIcon(
+                    AssetImage('assets/logo.png'),
                     color: Colors.white,
-                    fontSize: 65,
-                    fontWeight: FontWeight.bold,
+                    size: 100,
                   ),
-                ),
+                  Center(
+                    child: Text(
+                      'Outlay',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 65,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              Center(
+              const Center(
                 child: Text(
                   'Loding...',
                   style: TextStyle(
