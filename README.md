@@ -1,6 +1,6 @@
 # Outlay
 
-Money Management Application using Flutter
+The outlay is a money management app
 
 ## What is Flutter?
 
