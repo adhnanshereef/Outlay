@@ -61,7 +61,7 @@ class _SplashState extends State<Splash> {
               ),
               const Center(
                 child: Text(
-                  'Loding...',
+                  'Loading...',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
