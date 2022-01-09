@@ -1,0 +1,20 @@
+import 'package:flutter/material.dart';
+
+class Settings extends StatelessWidget {
+  const Settings({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text(
+        'Outlay Settings',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 65,
+          letterSpacing: 5,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
+}

@@ -26,7 +26,7 @@ class BasicInformationDB implements BasicInformationDBFunctions {
     await _db.put(obj.id, obj);
     final _sharedPreference = await SharedPreferences.getInstance();
     await _sharedPreference.setBool(user, true);
-    getBasicInformations();
+    userName = _sharedPreference.getString(username)!;
   }
 
   @override

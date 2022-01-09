@@ -1,10 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:outlay/db/basic_information/basic_information_db.dart';
+import 'package:outlay/screens/home/daily.dart';
+import 'package:outlay/screens/home/monthly.dart';
+import 'package:outlay/screens/home/settings.dart';
 
 late String userName;
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int _currentSelectedIndex = 0;
+  final List tabs = const [
+    Daily(),
+    Monthly(),
+    Settings(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -87,57 +102,45 @@ class Home extends StatelessWidget {
           ),
         ),
         body: SafeArea(
-          child: Column(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(30),
-                  child: ListView.separated(
-                      itemBuilder: (ctx, index) {
-                        return Container(
-                          height: 80,
-                          decoration: BoxDecoration(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(20)),
-                            border: Border.all(
-                              color: Colors.white,
-                            ),
-                            // gradient: LinearGradient(
-                            //   stops: [
-                            //     0.10,
-                            //     0.90,
-                            //   ],
-                            //   begin: Alignment.centerLeft,
-                            //   end: Alignment.centerRight,
-                            //   colors: [
-                            //     Color(0xFF09102a),
-                            //     Color(0xFF003157),
-                            //   ],
-                            // ),
-                          ),
-                          child: const ListTile(
-                            title: Text(
-                              "Hi",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                        );
-                      },
-                      separatorBuilder: (ctx, index) {
-                        return const SizedBox(
-                          height: 50,
-                        );
-                      },
-                      itemCount: 10),
-                ),
-              ),
-            ],
-          ),
+          child: tabs[_currentSelectedIndex],
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: const Icon(Icons.add),
-          backgroundColor: const Color(0xFF003157),
+        floatingActionButton: _currentSelectedIndex != 2
+            ? FloatingActionButton(
+                onPressed: () {},
+                child: const Icon(Icons.add),
+                backgroundColor: const Color(0xFF003157),
+              )
+            : null,
+        bottomNavigationBar: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.calendar_today,
+              ),
+              label: 'Daily',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.calendar_today,
+              ),
+              label: 'Monthly',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.calendar_today,
+              ),
+              label: 'Settings',
+            ),
+          ],
+          onTap: (newIndex) {
+            setState(() {
+              _currentSelectedIndex = newIndex;
+            });
+          },
+          currentIndex: _currentSelectedIndex,
+          backgroundColor: Colors.transparent,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.blueGrey,
         ),
       ),
     );

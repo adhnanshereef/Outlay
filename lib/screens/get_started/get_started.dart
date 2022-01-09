@@ -393,6 +393,7 @@ class GetStarted extends StatelessWidget {
     if (_name.isEmpty) {
       return;
     }
+    userName = _name;
     final _model = BasicInformationModel(
       id: DateTime.now().millisecondsSinceEpoch.toString(),
       name: _name,
