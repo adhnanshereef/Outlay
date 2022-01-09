@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:outlay/screens/splash/splash.dart';
+import 'db/basic_information/basic_information_db.dart';
+import 'db/basic_information/basic_information_model.dart';
 
-void main(List<String> args) {
+String user = 'user';
+String username = 'username';
+
+main(List<String> args) async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  if (!Hive.isAdapterRegistered(BasicInformationAdapter().typeId)) {
+    Hive.registerAdapter(BasicInformationAdapter());
+  }
+  BasicInformationDB.instance.getBasicInformations();
   runApp(const Outlay());
 }
 
@@ -11,7 +23,10 @@ class Outlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primaryColor: Colors.white),
+      theme: ThemeData(
+        primaryColor: Colors.white,
+        primaryColorDark: Colors.white,
+      ),
       home: const Splash(),
     );
   }

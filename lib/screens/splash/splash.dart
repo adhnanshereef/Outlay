@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:outlay/screens/indroduction/indroduction.dart';
+import 'package:outlay/main.dart';
+import 'package:outlay/screens/get_started/get_started.dart';
+import 'package:outlay/screens/home/home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -11,7 +14,7 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
   @override
   void initState() {
-    loding();
+    splash();
     super.initState();
   }
 
@@ -53,6 +56,7 @@ class _SplashState extends State<Splash> {
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 65,
+                        letterSpacing: 5,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -75,10 +79,25 @@ class _SplashState extends State<Splash> {
     );
   }
 
-  Future<void> loding() async {
-    await Future.delayed(const Duration(seconds: 3));
-    Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (ctx) => const Indroduction()),
-        (route) => false);
+  Future<void> splash() async {
+    final _sharedPreference = await SharedPreferences.getInstance();
+    final _user = _sharedPreference.getBool(user);
+    if (_user == null || _user == false) {
+      await Future.delayed(const Duration(seconds: 3));
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(
+          builder: (ctx) => GetStarted(),
+        ),
+        (route) => false,
+      );
+    } else {
+      await Future.delayed(const Duration(seconds: 3));
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(
+          builder: (ctx) => const Home(),
+        ),
+        (route) => false,
+      );
+    }
   }
 }
