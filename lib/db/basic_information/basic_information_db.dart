@@ -10,7 +10,7 @@ String? name;
 abstract class BasicInformationDBFunctions {
   Future<void> getStared(BasicInformationModel obj);
   Future<void> getBasicInformations();
-  // void refreshName();
+  Future<void> updateBasicInformation(String newName);
 }
 
 class BasicInformationDB implements BasicInformationDBFunctions {
@@ -26,7 +26,7 @@ class BasicInformationDB implements BasicInformationDBFunctions {
     await _db.put(obj.id, obj);
     final _sharedPreference = await SharedPreferences.getInstance();
     await _sharedPreference.setBool(user, true);
-    userName = _sharedPreference.getString(username)!;
+    getBasicInformations();
   }
 
   @override
@@ -34,16 +34,35 @@ class BasicInformationDB implements BasicInformationDBFunctions {
     final _db =
         await Hive.openBox<BasicInformationModel>(basicInformtionDBName);
     final String _name = _db.values.toList()[0].name;
+    final String _id = _db.values.toList()[0].id;
     final _sharedPreference = await SharedPreferences.getInstance();
     await _sharedPreference.setString(username, _name);
+    await _sharedPreference.setString('id', _id);
     final _user = _sharedPreference.getBool(user);
     if (_user != null) {
       userName = _sharedPreference.getString(username)!;
     }
-
+    print(
+        ' hi hello ${_sharedPreference.getString(username)} im boom ba $_name');
     return _name;
   }
 
-  // @override
-  // void refreshName() {}
+  @override
+  Future<void> updateBasicInformation(String newName) async {
+    final _db =
+        await Hive.openBox<BasicInformationModel>(basicInformtionDBName);
+
+    final _sharedPreference = await SharedPreferences.getInstance();
+    final String _id = _sharedPreference.getString('id')!;
+    final _obj = BasicInformationModel(id: _id, name: newName);
+    _db.clear();
+    getStared(_obj);
+    // await _sharedPreference.setString(username, newName);
+    // final _user = _sharedPreference.getBool(user);
+    // if (_user != null) {
+    //   userName = newName;
+    // }
+    print(
+        ' hi hello ${_sharedPreference.getString(username)} $newName $username $userName $_id');
+  }
 }

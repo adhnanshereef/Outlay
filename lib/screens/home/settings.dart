@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:outlay/main.dart';
+import 'package:outlay/db/basic_information/basic_information_db.dart';
+
 import 'package:outlay/screens/home/home.dart';
 
-class Settings extends StatelessWidget {
+class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
+
+  @override
+  State<Settings> createState() => _SettingsState();
+}
+
+class _SettingsState extends State<Settings> {
+  final _userNameEditingController = TextEditingController();
+  bool _userNameEditor = false;
 
   @override
   Widget build(BuildContext context) {
@@ -22,18 +31,65 @@ class Settings extends StatelessWidget {
             ),
             child: Center(
               child: ListTile(
-                title: Text(
-                  userName,
-                  style: const TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
+                title: !_userNameEditor
+                    ? Text(
+                        userName,
+                        style: const TextStyle(
+                          color: Colors.white,
+                        ),
+                      )
+                    : Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Container(
+                          decoration: const BoxDecoration(
+                              border: Border(
+                                  bottom: BorderSide(
+                            width: 2,
+                            color: Colors.white,
+                          ))),
+                          child: Center(
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              child: TextFormField(
+                                // initialValue: userName,
+                                controller: _userNameEditingController,
+                                style: const TextStyle(color: Colors.white),
+                                decoration: const InputDecoration(
+                                  hintText: 'Your Name...',
+                                  hintStyle: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                  border: UnderlineInputBorder(
+                                      borderSide: BorderSide.none),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                 trailing: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.edit,
-                    color: Colors.white,
-                  ),
+                  onPressed: () {
+                    if (!_userNameEditor) {
+                      setState(() {
+                        _userNameEditor = true;
+                      });
+                    } else {
+                      renaming();
+                      setState(() {
+                        _userNameEditor = false;
+                      });
+                    }
+                  },
+                  icon: !_userNameEditor
+                      ? const Icon(
+                          Icons.edit,
+                          color: Colors.white,
+                        )
+                      : const Icon(
+                          Icons.check,
+                          color: Colors.white,
+                        ),
                 ),
                 leading: Container(
                   decoration: BoxDecoration(
@@ -179,5 +235,16 @@ class Settings extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void renaming() {
+    final _newName = _userNameEditingController.text;
+    if (_newName.isEmpty) {
+      return;
+    }
+    setState(() {
+      userName = _newName;
+    });
+    BasicInformationDB.instance.updateBasicInformation(_newName);
   }
 }
