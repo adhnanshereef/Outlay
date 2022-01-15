@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:outlay/db/basic_information/basic_information_db.dart';
-import 'package:outlay/screens/home/daily.dart';
-import 'package:outlay/screens/home/monthly.dart';
-import 'package:outlay/screens/home/settings.dart';
+import 'package:outlay/screens/home/pages/views/add.dart';
+import 'package:outlay/screens/home/pages/views/daily.dart';
+import 'package:outlay/screens/home/pages/views/monthly.dart';
+import 'package:outlay/screens/home/pages/settings/settings.dart';
 
 late String userName;
 
@@ -108,7 +109,10 @@ class _HomeState extends State<Home> {
         ),
         floatingActionButton: _currentSelectedIndex != 2
             ? FloatingActionButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (ctx) => const Add()));
+                },
                 child: const Icon(Icons.add),
                 backgroundColor: const Color(0xFF003157),
               )

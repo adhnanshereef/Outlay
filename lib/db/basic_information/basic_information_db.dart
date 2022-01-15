@@ -42,8 +42,7 @@ class BasicInformationDB implements BasicInformationDBFunctions {
     if (_user != null) {
       userName = _sharedPreference.getString(username)!;
     }
-    print(
-        ' hi hello ${_sharedPreference.getString(username)} im boom ba $_name');
+
     return _name;
   }
 
@@ -57,12 +56,5 @@ class BasicInformationDB implements BasicInformationDBFunctions {
     final _obj = BasicInformationModel(id: _id, name: newName);
     _db.clear();
     getStared(_obj);
-    // await _sharedPreference.setString(username, newName);
-    // final _user = _sharedPreference.getBool(user);
-    // if (_user != null) {
-    //   userName = newName;
-    // }
-    print(
-        ' hi hello ${_sharedPreference.getString(username)} $newName $username $userName $_id');
   }
 }
