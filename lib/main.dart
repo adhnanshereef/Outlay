@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:outlay/db/transactions/transaction_model.dart';
 import 'package:outlay/screens/splash/splash.dart';
 import 'db/basic_information/basic_information_db.dart';
 import 'db/basic_information/basic_information_model.dart';
@@ -26,6 +27,9 @@ main(List<String> args) async {
   await Hive.initFlutter();
   if (!Hive.isAdapterRegistered(BasicInformationAdapter().typeId)) {
     Hive.registerAdapter(BasicInformationAdapter());
+  }
+  if (!Hive.isAdapterRegistered(TransactionAdapter().typeId)) {
+    Hive.registerAdapter(TransactionAdapter());
   }
   BasicInformationDB.instance.getBasicInformations();
   runApp(const Outlay());

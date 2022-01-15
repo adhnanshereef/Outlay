@@ -103,35 +103,6 @@ class Add extends StatelessWidget {
               const SizedBox(
                 height: 50,
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                height: 75,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.white,
-                  ),
-                  borderRadius: const BorderRadius.all(Radius.circular(20)),
-                ),
-                child: Center(
-                  child: TextFormField(
-                    // controller: _nameController,
-                    style: const TextStyle(color: Colors.white),
-                    decoration: const InputDecoration(
-                      hintText: 'Currency type...',
-                      hintStyle: TextStyle(color: Colors.white),
-                      border: InputBorder.none,
-                      focusedBorder: InputBorder.none,
-                      enabledBorder: InputBorder.none,
-                      errorBorder: InputBorder.none,
-                      disabledBorder: InputBorder.none,
-                      focusColor: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 50,
-              ),
               TextButton.icon(
                 onPressed: () async {
                   final _selectedDateTemp = await showDatePicker(

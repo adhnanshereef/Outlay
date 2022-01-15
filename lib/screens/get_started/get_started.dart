@@ -329,18 +329,14 @@ class GetStarted extends StatelessWidget {
                         decoration: BoxDecoration(
                           gradient: const LinearGradient(
                             stops: [
-                              -0.056,
-                              -0.056,
-                              -0.055,
-                              1.1,
+                              0.10,
+                              0.90,
                             ],
-                            begin: Alignment.centerLeft,
+                            begin: Alignment.topLeft,
                             end: Alignment.centerRight,
                             colors: [
-                              Color(0xFF081521),
-                              Color(0xFF000000),
-                              Color(0xFF050815),
-                              Color(0xFF00203d),
+                              Color(0xFF09102a),
+                              Color(0xFF003157),
                             ],
                           ),
                           borderRadius: BorderRadius.circular(20),
@@ -383,7 +379,11 @@ class GetStarted extends StatelessWidget {
             ),
           ),
         ),
-        height: double.infinity,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: const Color(0xFF003157),
+        child: const Icon(Icons.help),
       ),
     );
   }

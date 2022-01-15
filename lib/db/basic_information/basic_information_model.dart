@@ -7,6 +7,5 @@ class BasicInformationModel {
   final String id;
   @HiveField(1)
   final String name;
-
   BasicInformationModel({required this.id, required this.name});
 }
