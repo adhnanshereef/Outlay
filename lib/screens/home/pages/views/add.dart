@@ -133,7 +133,18 @@ class Add extends StatelessWidget {
                 height: 50,
               ),
               TextButton.icon(
-                onPressed: () {},
+                onPressed: () async {
+                  final _selectedDateTemp = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate:
+                        DateTime.now().subtract(const Duration(days: 365)),
+                    lastDate: DateTime.now(),
+                  );
+                  if (_selectedDateTemp == null) {
+                    return;
+                  }
+                },
                 icon: const Icon(
                   Icons.calendar_today_rounded,
                   color: Colors.white,
@@ -152,18 +163,14 @@ class Add extends StatelessWidget {
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
                     stops: [
-                      -0.056,
-                      -0.056,
-                      -0.055,
-                      1.1,
+                      0.10,
+                      0.90,
                     ],
-                    begin: Alignment.centerLeft,
+                    begin: Alignment.topLeft,
                     end: Alignment.centerRight,
                     colors: [
-                      Color(0xFF081521),
-                      Color(0xFF000000),
-                      Color(0xFF050815),
-                      Color(0xFF00203d),
+                      Color(0xFF09102a),
+                      Color(0xFF003157),
                     ],
                   ),
                   borderRadius: BorderRadius.circular(20),
@@ -181,13 +188,21 @@ class Add extends StatelessWidget {
                     shadowColor: MaterialStateProperty.all(Colors.transparent),
                   ),
                   onPressed: () {},
-                  child: const Text(
-                    'Get Started',
-                    style: TextStyle(
-                      fontSize: 18,
-                      // fontWeight: FontWeight.w700,
-                      color: Colors.white,
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(Icons.add),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Text(
+                        'Add',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

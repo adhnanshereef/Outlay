@@ -114,7 +114,7 @@ class _HomeState extends State<Home> {
                       .push(MaterialPageRoute(builder: (ctx) => const Add()));
                 },
                 child: const Icon(Icons.add),
-                backgroundColor: const Color(0xFF003157),
+                backgroundColor: const Color(0xFF09102a),
               )
             : null,
         bottomNavigationBar: BottomNavigationBar(
