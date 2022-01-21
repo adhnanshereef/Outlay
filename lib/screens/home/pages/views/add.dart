@@ -1,7 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:outlay/db/transactions/transaction_db.dart';
+import 'package:outlay/db/transactions/transaction_model.dart';
 
-class Add extends StatelessWidget {
+class Add extends StatefulWidget {
   const Add({Key? key}) : super(key: key);
+
+  @override
+  State<Add> createState() => _AddState();
+}
+
+class _AddState extends State<Add> {
+  final _titleController = TextEditingController();
+
+  final _amountController = TextEditingController();
+
+  DateTime? _selectedDate;
+
+  String? _date;
+
+  TransactionType? _selectedTransactionType;
+
+  @override
+  void initState() {
+    _selectedTransactionType = TransactionType.income;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +79,7 @@ class Add extends StatelessWidget {
                 ),
                 child: Center(
                   child: TextFormField(
-                    // controller: _nameController,
+                    controller: _titleController,
                     style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                       hintText: 'Title...',
@@ -85,7 +108,8 @@ class Add extends StatelessWidget {
                 ),
                 child: Center(
                   child: TextFormField(
-                    // controller: _nameController,
+                    controller: _amountController,
+                    keyboardType: TextInputType.number,
                     style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                       hintText: 'Amount...',
@@ -114,18 +138,74 @@ class Add extends StatelessWidget {
                   );
                   if (_selectedDateTemp == null) {
                     return;
+                  } else {
+                    setState(() {
+                      _selectedDate = _selectedDateTemp;
+                      _date = parseDate(_selectedDate!);
+                    });
                   }
                 },
                 icon: const Icon(
                   Icons.calendar_today_rounded,
                   color: Colors.white,
                 ),
-                label: const Text(
-                  'Select Date',
-                  style: TextStyle(
+                label: Text(
+                  _selectedDate == null ? 'Select Date' : _date!,
+                  style: const TextStyle(
                     color: Colors.white,
                   ),
                 ),
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Row(
+                    children: [
+                      Radio(
+                          value: TransactionType.income,
+                          groupValue: _selectedTransactionType,
+                          activeColor: Colors.white,
+                          fillColor: MaterialStateColor.resolveWith(
+                              (states) => Colors.white),
+                          onChanged: (newValue) {
+                            setState(() {
+                              _selectedTransactionType = TransactionType.income;
+                            });
+                          }),
+                      const Text(
+                        'Income',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Radio(
+                          value: TransactionType.expense,
+                          groupValue: _selectedTransactionType,
+                          activeColor: Colors.white,
+                          fillColor: MaterialStateColor.resolveWith(
+                              (states) => Colors.white),
+                          onChanged: (newValue) {
+                            setState(() {
+                              _selectedTransactionType =
+                                  TransactionType.expense;
+                            });
+                          }),
+                      const Text(
+                        'Expense',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                ],
               ),
               const SizedBox(
                 height: 50,
@@ -158,7 +238,9 @@ class Add extends StatelessWidget {
                         MaterialStateProperty.all(Colors.transparent),
                     shadowColor: MaterialStateProperty.all(Colors.transparent),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    addTransaction(context);
+                  },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
@@ -185,5 +267,87 @@ class Add extends StatelessWidget {
         )),
       ),
     );
+  }
+
+  String parseDate(DateTime date) {
+    return '${date.day} / ${date.month} / ${date.year}';
+  }
+
+  void addTransaction(BuildContext context) {
+    final _title = _titleController.text;
+    final _amountText = _amountController.text;
+    if (_title.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: const Color(0xFF003157),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          margin: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
+          content: const Text('The Title is required.'),
+          duration: const Duration(seconds: 10),
+        ),
+      );
+      return;
+    }
+    if (_amountText.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: const Color(0xFF003157),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          margin: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
+          content: const Text('The Amount is required.'),
+          duration: const Duration(seconds: 10),
+        ),
+      );
+      return;
+    }
+    final _amount = double.tryParse(_amountText);
+    if (_amount == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: const Color(0xFF003157),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          margin: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
+          content: const Text('The Amount must be a numeric.'),
+          duration: const Duration(seconds: 10),
+        ),
+      );
+      return;
+    }
+    if (_selectedDate == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: const Color(0xFF003157),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          margin: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
+          content: const Text('The Date is required.'),
+          duration: const Duration(seconds: 10),
+        ),
+      );
+      return;
+    }
+    final _model = TransactionModel(
+      title: _title,
+      amount: _amount,
+      date: _selectedDate!,
+      type: _selectedTransactionType!,
+    );
+    TransactionDB.instance.addTransaction(_model);
+    Navigator.of(context).pop();
   }
 }

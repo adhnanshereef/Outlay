@@ -16,7 +16,7 @@ class TransactionModel {
   @HiveField(1)
   final String title;
   @HiveField(2)
-  final bool amount;
+  final double amount;
   @HiveField(3)
   final DateTime date;
   @HiveField(4)
@@ -30,3 +30,34 @@ class TransactionModel {
     id = DateTime.now().millisecondsSinceEpoch.toString();
   }
 }
+
+// @HiveType(typeId: 4, adapterName: 'CategoryModelAdapter')
+// class CategoryModel {
+//   @HiveField(0)
+//   final String transactionId;
+//   @HiveField(1)
+//   final String title;
+//   @HiveField(2)
+//   final double amount;
+//   CategoryModel(
+//       {required this.transactionId, required this.title, required this.amount});
+// }
+
+// @HiveType(typeId: 2, adapterName: 'DailyTransactionAdapter')
+// class DailyTransactionModel {
+//   @HiveField(0)
+//   final String id;
+//   @HiveField(1)
+//   final DateTime date;
+//   @HiveField(2)
+//   final List<CategoryModel> income;
+//   @HiveField(3)
+//   final List<CategoryModel> expense;
+
+//   DailyTransactionModel({
+//     required this.id,
+//     required this.date,
+//     required this.income,
+//     required this.expense,
+//   });
+// }

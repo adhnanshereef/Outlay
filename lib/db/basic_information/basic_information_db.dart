@@ -33,17 +33,19 @@ class BasicInformationDB implements BasicInformationDBFunctions {
   Future<String> getBasicInformations() async {
     final _db =
         await Hive.openBox<BasicInformationModel>(basicInformtionDBName);
-    final String _name = _db.values.toList()[0].name;
-    final String _id = _db.values.toList()[0].id;
-    final _sharedPreference = await SharedPreferences.getInstance();
-    await _sharedPreference.setString(username, _name);
-    await _sharedPreference.setString('id', _id);
-    final _user = _sharedPreference.getBool(user);
-    if (_user != null) {
-      userName = _sharedPreference.getString(username)!;
+    if (_db.isNotEmpty) {
+      final String _name = _db.values.toList()[0].name;
+      final String _id = _db.values.toList()[0].id;
+      final _sharedPreference = await SharedPreferences.getInstance();
+      await _sharedPreference.setString(username, _name);
+      await _sharedPreference.setString('id', _id);
+      final _user = _sharedPreference.getBool(user);
+      if (_user != null) {
+        userName = _sharedPreference.getString(username)!;
+      }
+      return _name;
     }
-
-    return _name;
+    return '';
   }
 
   @override

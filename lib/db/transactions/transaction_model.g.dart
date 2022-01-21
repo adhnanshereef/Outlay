@@ -18,7 +18,7 @@ class TransactionAdapter extends TypeAdapter<TransactionModel> {
     };
     return TransactionModel(
       title: fields[1] as String,
-      amount: fields[2] as bool,
+      amount: fields[2] as double,
       date: fields[3] as DateTime,
       type: fields[4] as TransactionType,
     )..id = fields[0] as String?;

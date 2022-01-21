@@ -28,9 +28,13 @@ main(List<String> args) async {
   if (!Hive.isAdapterRegistered(BasicInformationAdapter().typeId)) {
     Hive.registerAdapter(BasicInformationAdapter());
   }
+  if (!Hive.isAdapterRegistered(TransactionTypeAdapter().typeId)) {
+    Hive.registerAdapter(TransactionTypeAdapter());
+  }
   if (!Hive.isAdapterRegistered(TransactionAdapter().typeId)) {
     Hive.registerAdapter(TransactionAdapter());
   }
+
   BasicInformationDB.instance.getBasicInformations();
   runApp(const Outlay());
 }
@@ -43,6 +47,7 @@ class Outlay extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: primarySwatch,
+        primaryColor: Colors.white,
       ),
       home: const Splash(),
     );

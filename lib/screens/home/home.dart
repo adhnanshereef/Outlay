@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:outlay/db/basic_information/basic_information_db.dart';
 import 'package:outlay/screens/home/pages/views/add.dart';
-import 'package:outlay/screens/home/pages/views/daily.dart';
-import 'package:outlay/screens/home/pages/views/monthly.dart';
+import 'package:outlay/screens/home/pages/views/daily/daily.dart';
+import 'package:outlay/screens/home/pages/views/monthly/monthly.dart';
 import 'package:outlay/screens/home/pages/settings/settings.dart';
 
 late String userName;
@@ -114,7 +114,7 @@ class _HomeState extends State<Home> {
                       .push(MaterialPageRoute(builder: (ctx) => const Add()));
                 },
                 child: const Icon(Icons.add),
-                backgroundColor: const Color(0xFF09102a),
+                backgroundColor: const Color(0xFF003157),
               )
             : null,
         bottomNavigationBar: BottomNavigationBar(
