@@ -168,7 +168,7 @@ packages:
       name: cupertino_icons
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.4"
+    version: "1.0.2"
   dart_style:
     dependency: transitive
     description:
@@ -222,7 +222,7 @@ packages:
       name: flutter_lints
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.4"
+    version: "1.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter

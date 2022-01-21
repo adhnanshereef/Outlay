@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:outlay/db/transactions/transaction_db.dart';
 import 'package:outlay/db/transactions/transaction_model.dart';
+import '../../../../main.dart';
 
 class Add extends StatefulWidget {
   const Add({Key? key}) : super(key: key);
@@ -267,10 +268,6 @@ class _AddState extends State<Add> {
         )),
       ),
     );
-  }
-
-  String parseDate(DateTime date) {
-    return '${date.day} / ${date.month} / ${date.year}';
   }
 
   void addTransaction(BuildContext context) {

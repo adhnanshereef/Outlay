@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:outlay/db/transactions/transaction_db.dart';
 import 'package:outlay/db/transactions/transaction_model.dart';
+import 'package:outlay/main.dart';
 
 class DailyIncomes extends StatelessWidget {
   const DailyIncomes({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class DailyIncomes extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    _transaction.date.toString(),
+                    parseDate(_transaction.date),
                     style: const TextStyle(color: Colors.white),
                   ),
                   Column(

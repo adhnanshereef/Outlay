@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:intl/intl.dart';
 import 'package:outlay/db/transactions/transaction_model.dart';
 import 'package:outlay/screens/splash/splash.dart';
 import 'db/basic_information/basic_information_db.dart';
@@ -61,4 +62,10 @@ Color getColor(String hexColor) {
   }
   if (hexColor.length == 8) {}
   return Color(int.parse("0x$hexColor"));
+}
+
+String parseDate(DateTime date) {
+  final _date = DateFormat.yMMMd().format(date);
+  final _splitedDate = _date.split(' ');
+  return '${_splitedDate[0]} ${_splitedDate[1]} ${_splitedDate[2]}';
 }

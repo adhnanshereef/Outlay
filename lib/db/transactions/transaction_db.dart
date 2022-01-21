@@ -45,7 +45,9 @@ class TransactionDB implements TransactionDBFunctions {
         dailyExpenseListener.value.add(transaction);
       }
     });
+    // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
     dailyIncomeListener.notifyListeners();
+    // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
     dailyExpenseListener.notifyListeners();
   }
 }
