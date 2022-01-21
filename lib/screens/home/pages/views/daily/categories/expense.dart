@@ -10,7 +10,8 @@ class DailyExpense extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: TransactionDB.instance.dailyExpenseListener,
-      builder: (BuildContext context, List<TransactionModel> list, Widget? _) {
+      builder:
+          (BuildContext context, List<SortedTransactionModel> list, Widget? _) {
         return Padding(
           padding: const EdgeInsets.all(30),
           child: ListView.separated(
@@ -66,11 +67,11 @@ class DailyExpense extends StatelessWidget {
                         child: Center(
                           child: ListTile(
                             title: Text(
-                              _transaction.title,
+                              _transaction.category[0].title,
                               style: const TextStyle(color: Colors.white),
                             ),
                             trailing: Text(
-                              "Rs. ${_transaction.amount}",
+                              "Rs. ${_transaction.category[0].amount}",
                               style: const TextStyle(color: Colors.white),
                             ),
                           ),
@@ -83,7 +84,7 @@ class DailyExpense extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
-                            'Total : Rs. ${_transaction.amount}',
+                            'Total : Rs. ${_transaction.category[0].amount}',
                             style: const TextStyle(
                               color: Colors.white,
                             ),
