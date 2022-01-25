@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:outlay/db/transactions/transaction_db.dart';
-import 'package:outlay/screens/home/pages/views/daily/categories/expense.dart';
-import 'package:outlay/screens/home/pages/views/daily/categories/income.dart';
+import 'package:outlay/screens/home/pages/transactions/categories/income.dart';
+import 'categories/expense.dart';
 
-class Daily extends StatefulWidget {
-  const Daily({Key? key}) : super(key: key);
+class Transactions extends StatefulWidget {
+  const Transactions({Key? key}) : super(key: key);
 
   @override
-  State<Daily> createState() => _DailyState();
+  State<Transactions> createState() => _TransactionsState();
 }
 
-class _DailyState extends State<Daily> with SingleTickerProviderStateMixin {
+class _TransactionsState extends State<Transactions>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
   @override
   void initState() {
@@ -39,8 +40,8 @@ class _DailyState extends State<Daily> with SingleTickerProviderStateMixin {
           child: TabBarView(
             controller: _tabController,
             children: const [
-              DailyIncomes(),
-              DailyExpense(),
+              Incomes(),
+              Expense(),
             ],
           ),
         ),

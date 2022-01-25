@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:outlay/db/basic_information/basic_information_db.dart';
-import 'package:outlay/screens/home/pages/views/add.dart';
-import 'package:outlay/screens/home/pages/views/daily/daily.dart';
-import 'package:outlay/screens/home/pages/views/monthly/monthly.dart';
+import 'package:outlay/screens/home/pages/transactions/add.dart';
+import 'package:outlay/screens/home/pages/transactions/transactions.dart';
 import 'package:outlay/screens/home/pages/settings/settings.dart';
 
 late String userName;
@@ -17,8 +16,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _currentSelectedIndex = 0;
   final List tabs = const [
-    Daily(),
-    Monthly(),
+    Transactions(),
     Settings(),
   ];
 
@@ -121,19 +119,13 @@ class _HomeState extends State<Home> {
           items: const [
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.calendar_today,
+                Icons.bar_chart,
               ),
-              label: 'Daily',
+              label: 'Transactions',
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.calendar_today,
-              ),
-              label: 'Monthly',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.calendar_today,
+                Icons.settings,
               ),
               label: 'Settings',
             ),

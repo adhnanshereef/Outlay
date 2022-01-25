@@ -3,15 +3,14 @@ import 'package:outlay/db/transactions/transaction_db.dart';
 import 'package:outlay/db/transactions/transaction_model.dart';
 import 'package:outlay/main.dart';
 
-class DailyIncomes extends StatelessWidget {
-  const DailyIncomes({Key? key}) : super(key: key);
+class Incomes extends StatelessWidget {
+  const Incomes({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: TransactionDB.instance.dailyIncomeListener,
-      builder:
-          (BuildContext context, List<SortedTransactionModel> list, Widget? _) {
+      builder: (BuildContext context, List<TransactionModel> list, Widget? _) {
         return Padding(
           padding: const EdgeInsets.all(30),
           child: ListView.separated(
@@ -20,10 +19,6 @@ class DailyIncomes extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    parseDate(_transaction.date),
-                    style: const TextStyle(color: Colors.white),
-                  ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -31,18 +26,18 @@ class DailyIncomes extends StatelessWidget {
                         height: 10,
                       ),
                       Row(
-                        children: const [
-                          SizedBox(
+                        children: [
+                          const SizedBox(
                             width: 20,
                             child: Divider(
                               color: Colors.white,
                             ),
                           ),
                           Text(
-                            '  Income  ',
-                            style: TextStyle(color: Colors.white),
+                            '  ${parseDate(_transaction.date)}  ',
+                            style: const TextStyle(color: Colors.white),
                           ),
-                          Expanded(
+                          const Expanded(
                             child: Divider(
                               color: Colors.white,
                             ),
@@ -64,32 +59,28 @@ class DailyIncomes extends StatelessWidget {
                         child: Center(
                           child: ListTile(
                             title: Text(
-                              _transaction.category[0].title,
+                              _transaction.title,
                               style: const TextStyle(
                                 color: Colors.white,
                               ),
                             ),
                             trailing: Text(
-                              'Rs. ${_transaction.category[0].amount}',
+                              'Rs. ${_transaction.amount}',
                               style: const TextStyle(color: Colors.white),
+                            ),
+                            leading: IconButton(
+                              onPressed: () {
+                                TransactionDB.instance
+                                    .deleteTransaction(_transaction.id!);
+                              },
+                              icon: const Icon(
+                                Icons.delete,
+                                color: Colors.red,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            'Total : Rs. ${_transaction.category[0].amount}',
-                            style: const TextStyle(
-                              color: Colors.white,
-                            ),
-                          )
-                        ],
-                      )
                     ],
                   ),
                   const SizedBox(
@@ -102,14 +93,8 @@ class DailyIncomes extends StatelessWidget {
               return Column(
                 children: const [
                   SizedBox(
-                    height: 50,
+                    height: 10,
                   ),
-                  Divider(
-                    color: Colors.white,
-                  ),
-                  SizedBox(
-                    height: 50,
-                  )
                 ],
               );
             },

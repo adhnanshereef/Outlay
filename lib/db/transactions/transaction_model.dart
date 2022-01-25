@@ -30,21 +30,3 @@ class TransactionModel {
     id = DateTime.now().millisecondsSinceEpoch.toString();
   }
 }
-
-class CategoryModel {
-  final String id;
-  final String title;
-  final double amount;
-  CategoryModel({
-    required this.id,
-    required this.title,
-    required this.amount,
-  });
-}
-
-class SortedTransactionModel {
-  final DateTime date;
-  final List<CategoryModel> category;
-
-  SortedTransactionModel({required this.date, required this.category});
-}
