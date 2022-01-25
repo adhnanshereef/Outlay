@@ -13,7 +13,7 @@ The Outlay is a Money Management Application developed by a little boy study in 
 
 ## How to Start?
 
-1) Open Outlay and wait for fo finish loading.
+1) Open Outlay and wait for finish loading.
 2) Scroll down your screen Maximum.
 3) Enter your name in that text box.
 4) And click Get Started.

@@ -23,7 +23,7 @@ final Map<int, Color> _priSwatch = {
 final MaterialColor primarySwatch =
     MaterialColor(const Color(0xFF09102a).value, _priSwatch);
 
-main(List<String> args) async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   if (!Hive.isAdapterRegistered(BasicInformationAdapter().typeId)) {
