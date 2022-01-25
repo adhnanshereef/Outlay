@@ -105,7 +105,7 @@ class _HomeState extends State<Home> {
         body: SafeArea(
           child: tabs[_currentSelectedIndex],
         ),
-        floatingActionButton: _currentSelectedIndex != 2
+        floatingActionButton: _currentSelectedIndex == 0
             ? FloatingActionButton(
                 onPressed: () {
                   Navigator.of(context)

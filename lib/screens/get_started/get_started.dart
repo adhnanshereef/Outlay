@@ -36,7 +36,7 @@ class GetStarted extends StatelessWidget {
                       height: 50,
                     ),
                     ImageIcon(
-                      AssetImage('assets/logo.png'),
+                      AssetImage('assets/logo_.png'),
                       color: Colors.white,
                       size: 75,
                     ),
@@ -73,7 +73,7 @@ class GetStarted extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(left: 20),
                       child: Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
+                        'The Outlay is a Money Management Application developed by a little boy study in 8th standard.',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 15,
@@ -106,7 +106,7 @@ class GetStarted extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
                           Text(
-                            '1) Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                            '1) Simple to set up.',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
@@ -117,7 +117,7 @@ class GetStarted extends StatelessWidget {
                             height: 20,
                           ),
                           Text(
-                            '2) Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                            '2) Easy to use.',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
@@ -128,7 +128,7 @@ class GetStarted extends StatelessWidget {
                             height: 20,
                           ),
                           Text(
-                            '3) Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                            "3) Don't want to download.",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
@@ -139,7 +139,7 @@ class GetStarted extends StatelessWidget {
                             height: 20,
                           ),
                           Text(
-                            '4) Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                            '4) It works on all devices.',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
@@ -174,7 +174,7 @@ class GetStarted extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
                           Text(
-                            '1) Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                            '1) Open Outlay and wait for finish loading.',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
@@ -185,7 +185,7 @@ class GetStarted extends StatelessWidget {
                             height: 20,
                           ),
                           Text(
-                            '2) Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                            '2) Scroll down your screen Maximum.',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
@@ -196,7 +196,7 @@ class GetStarted extends StatelessWidget {
                             height: 20,
                           ),
                           Text(
-                            '3) Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                            '3) Enter your name in that text box.',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
@@ -207,7 +207,7 @@ class GetStarted extends StatelessWidget {
                             height: 20,
                           ),
                           Text(
-                            '4) Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                            '4) And click Get Started.',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
@@ -242,7 +242,7 @@ class GetStarted extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
                           Text(
-                            '1) Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                            '1) Click the button on the right bottom of your screen.',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
@@ -253,7 +253,7 @@ class GetStarted extends StatelessWidget {
                             height: 20,
                           ),
                           Text(
-                            '2) Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                            '2) Then Enter Title for your transaction.',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
@@ -264,7 +264,7 @@ class GetStarted extends StatelessWidget {
                             height: 20,
                           ),
                           Text(
-                            '3) Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                            '3) Then enter the amount of your transaction.',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
@@ -275,7 +275,29 @@ class GetStarted extends StatelessWidget {
                             height: 20,
                           ),
                           Text(
-                            '4) Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                            '4) Then select transaction type.',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w100,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            '5) Then select the date of your transaction.',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w100,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            '6) Finally, click add to add your transaction.',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,

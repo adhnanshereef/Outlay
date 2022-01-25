@@ -39,7 +39,7 @@ class TransactionDB implements TransactionDBFunctions {
     List<TransactionModel> incomes = [];
     List<TransactionModel> expenses = [];
 
-    // _list.sort((first, second) => second.date.compareTo(first.date));
+    _list.sort((first, second) => second.date.compareTo(first.date));
     dailyIncomeListener.value.clear();
     dailyExpenseListener.value.clear();
     await Future.forEach(_list, (TransactionModel transaction) {

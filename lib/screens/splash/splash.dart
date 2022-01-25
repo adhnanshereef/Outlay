@@ -46,7 +46,7 @@ class _SplashState extends State<Splash> {
               Column(
                 children: const [
                   ImageIcon(
-                    AssetImage('assets/logo.png'),
+                    AssetImage('assets/logo_.png'),
                     color: Colors.white,
                     size: 100,
                   ),
