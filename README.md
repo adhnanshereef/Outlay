@@ -1,3 +1,5 @@
+![alt text](https://github.com/AdhnanShereef/Outlay/blob/main/assets/logo.png)
+
 # Outlay
 
 The Outlay is a Money Management Application developed by a little boy study in 8th standard.
