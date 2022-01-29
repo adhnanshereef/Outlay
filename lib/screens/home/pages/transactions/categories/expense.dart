@@ -89,18 +89,8 @@ class Expense extends StatelessWidget {
               );
             },
             separatorBuilder: (ctx, index) {
-              return Column(
-                children: const [
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Divider(
-                    color: Colors.white,
-                  ),
-                  SizedBox(
-                    height: 50,
-                  )
-                ],
+              return const SizedBox(
+                height: 10,
               );
             },
             itemCount: list.length,

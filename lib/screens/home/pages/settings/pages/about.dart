@@ -21,140 +21,159 @@ class About extends StatelessWidget {
         ),
       ),
       child: Scaffold(
-          backgroundColor: Colors.transparent,
-          body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: ListView(
-                children: [
-                  Column(
-                    children: const [
-                      SizedBox(
-                        height: 50,
+        backgroundColor: Colors.transparent,
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: ListView(
+              children: [
+                Column(
+                  children: const [
+                    SizedBox(
+                      height: 50,
+                    ),
+                    ImageIcon(
+                      AssetImage('assets/logo_.png'),
+                      color: Colors.white,
+                      size: 75,
+                    ),
+                    Center(
+                      child: Text(
+                        'Outlay',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 55,
+                          letterSpacing: 5,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      ImageIcon(
-                        AssetImage('assets/logo_.png'),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      'Indroduction',
+                      style: TextStyle(
                         color: Colors.white,
-                        size: 75,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900,
                       ),
-                      Center(
-                        child: Text(
-                          'Outlay',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 55,
-                            letterSpacing: 5,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        'Indroduction',
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 20),
+                      child: Text(
+                        'The Outlay is a Money Management Application developed by a boy study in 8th standard. An application to easily and securely record your income and expenses.',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w900,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w100,
                         ),
                       ),
-                      SizedBox(
-                        height: 20,
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Features',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900,
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 20),
-                        child: Text(
-                          'The Outlay is a Money Management Application developed by a little boy study in 8th standard.',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w100,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            '1) Simple to set up.',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w100,
+                            ),
                           ),
-                        ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            '2) Easy to use.',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w100,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "3) Don't want to download.",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w100,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            '4) It works on all devices.',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w100,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            '5) More Secure.',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w100,
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Features',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            Text(
-                              '1) Simple to set up.',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w100,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text(
-                              '2) Easy to use.',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w100,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text(
-                              "3) Don't want to download.",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w100,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text(
-                              '4) It works on all devices.',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w100,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+              ],
             ),
-          )),
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          backgroundColor: const Color(0xFF003157),
+          child: const Icon(Icons.exit_to_app),
+        ),
+      ),
     );
   }
 }

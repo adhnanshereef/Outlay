@@ -90,12 +90,8 @@ class Incomes extends StatelessWidget {
               );
             },
             separatorBuilder: (ctx, index) {
-              return Column(
-                children: const [
-                  SizedBox(
-                    height: 10,
-                  ),
-                ],
+              return const SizedBox(
+                height: 10,
               );
             },
             itemCount: list.length,

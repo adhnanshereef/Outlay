@@ -73,7 +73,7 @@ class GetStarted extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(left: 20),
                       child: Text(
-                        'The Outlay is a Money Management Application developed by a little boy study in 8th standard.',
+                        'The Outlay is a Money Management Application developed by a boy study in 8th standard. An application to easily and securely record your income and expenses.',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 15,
@@ -140,6 +140,17 @@ class GetStarted extends StatelessWidget {
                           ),
                           Text(
                             '4) It works on all devices.',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w100,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            '5) More Secure.',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
@@ -391,11 +402,6 @@ class GetStarted extends StatelessWidget {
             ),
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: const Color(0xFF003157),
-        child: const Icon(Icons.help),
       ),
     );
   }
