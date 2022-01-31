@@ -46,6 +46,7 @@ class Outlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "Outlay",
       theme: ThemeData(
         primarySwatch: primarySwatch,
         primaryColor: Colors.white,
